@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   server_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dokim2 <dokim2@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 20:16:26 by dokim2            #+#    #+#             */
-/*   Updated: 2022/09/26 22:19:15 by dokim2           ###   ########.fr       */
+/*   Updated: 2022/09/29 19:20:58 by dokim2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-t_info g_info;
+t_info	g_info;
 
-void print_reset(t_info *g_info)
+void	print_reset(t_info *g_info)
 {
 	ft_printf("%c", g_info->letter);
 	g_info->count = 0;
 	g_info->letter = 0;
 }
 
-void handler(int signo, siginfo_t *info, void *ucontext)
+void	handler(int signo, siginfo_t *info, void *ucontext)
 {
 	(void)ucontext;
 	g_info.c_pid = info->si_pid;
@@ -48,9 +48,9 @@ void handler(int signo, siginfo_t *info, void *ucontext)
 	}
 }
 
-int display_pid(void)
+int	display_pid(void)
 {
-	char *pid;
+	char	*pid;
 
 	if (getpid() > MAX_PID || getpid() < MIN_PID)
 		return (0);
@@ -64,9 +64,9 @@ int display_pid(void)
 	return (1);
 }
 
-int main(void)
+int	main(void)
 {
-	struct sigaction sa;
+	struct sigaction	sa;
 
 	sigemptyset(&sa.sa_mask);
 	sa.sa_sigaction = handler;

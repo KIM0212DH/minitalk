@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client.c                                           :+:      :+:    :+:   */
+/*   client_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dokim2 <dokim2@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 20:33:15 by dokim2            #+#    #+#             */
-/*   Updated: 2022/09/26 22:24:22 by dokim2           ###   ########.fr       */
+/*   Updated: 2022/09/29 19:20:39 by dokim2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-void check_handler(int signo)
+void	check_handler(int signo)
 {
 	if (signo == SIGUSR1)
 		;
@@ -20,7 +20,7 @@ void check_handler(int signo)
 		exit(1);
 }
 
-int display(int argc, char **argv)
+int	display(int argc, char **argv)
 {
 	if (argc != 3)
 		return (0);
@@ -28,13 +28,13 @@ int display(int argc, char **argv)
 	return (ft_atoi(argv[1]));
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	unsigned long idx;
-	unsigned char let;
-	int pid;
-	int i;
-	char *str;
+	unsigned long	idx;
+	unsigned char	let;
+	int				pid;
+	int				i;
+	char			*str;
 
 	idx = 0;
 	pid = display(argc, argv);
